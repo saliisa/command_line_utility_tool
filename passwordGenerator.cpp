@@ -37,7 +37,7 @@ int passwordGenerator(){
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discards all invalid characters remaining in the input buffer
     }
 
-    //error handling
+    //error handling to be done ******
 
     
 
@@ -60,53 +60,104 @@ int passwordGenerator(){
 
 void easyPasswordGenerator(){
     srand(time(0));
-    const int length = 8; 
+    const int length = 4; 
+    
     //Numbers
-   
-    int digit;
+    int randomDigit = 0;
     char charDigit;
     string resultNum;
-   
-    cout << '\n';
-    cout << "== Easy password (numbers): ";
-    for(int i = 0; i < length; i++){
-       digit = rand() % 10;
-       charDigit = '0' + digit;
-       resultNum += charDigit;
-
-    }
-    cout << resultNum;
 
     //Letters
     char letter;
     string result;
     int num = 0;
+   
     cout << '\n';
-    cout << "== Easy password (letters): ";
+    
     for(int i = 0; i < length; i++){
+        randomDigit = rand() % 10;
+        charDigit = '0' + randomDigit;
+        resultNum += charDigit;
+
         num = rand() % 26 ;
         letter = 'a' + num;
         result += letter;
-        
     }
+    cout << "== Easy password (numbers): ";
+    cout << resultNum <<endl;
 
+    cout << "== Easy password (letters): ";
     cout << result <<endl;
-
-   
-   
-
-
 
 }
 
 void mediumPasswordGenerator(){
     // num + letters
 
+    srand(time(0));
+    const int length = 6; 
+
+    int randomNum = 0;
+    char letter;
+    char digit;
+    string result; 
+
+    for(int i = 0; i < length; i++){
+        randomNum = rand() % 10;
+        digit = '0' + randomNum;
+        result += digit;
+
+        randomNum = rand() % 26 ;
+        letter = 'a' + randomNum;
+        result += letter;
+
+    }
+
+    cout << "== Medium password (numbers + letters): ";
+    cout << result <<endl;
 
 }
 
 void strongPasswordGenerator(){
     //num + letters + special chars
+
+    srand(time(0));
+    const int length = 6; 
+
+    int randomNum = 0;
+    char letter;
+    char digit;
+    string result; 
+
+    string specialChars[6] = {"'", ",", "@", "#", ".", "$"};
+
+    for(int i = 0; i < length; i++){
+        randomNum = rand() % 10;
+        digit = '0' + randomNum;
+        result += digit;
+        randomNum = rand() % 26 ;
+        letter = 'a' + randomNum;
+        result += letter;
+
+        //first generate a randomNum
+        //then based on the number, the index of specialChars is chosen 
+        // then added to result
+
+        randomNum = rand() % 6;
+        for(int i = 0; i < size(specialChars); i++){
+            if(randomNum == i){
+                result += specialChars[i];
+        }
+    }
+    
+
+        
+    }
+    
+
+    cout << "== Strong password (numbers + letters + special chars): ";
+    cout << result <<endl;
+
 
 }
 
