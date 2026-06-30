@@ -1,20 +1,7 @@
 #include <iostream>
 #include "../include/utility.h"
-
-
-//MISSING:
-// [ ] Input validation 
-    // invalid menu selections
-    //  non numeric input
-    // division by zero
-    // empty inputs
-// [ ] Error Handling + Messages
-// [ ] Comments to explain parts of code
-// [ ] Function design - each function should have a single responsibility
-// [ ] Code organization - organize code logically with related functions grouped together
-
-
 using namespace std;
+
 int calculator(){
     cout << "\n\n";
     cout << "=================" << endl;
@@ -26,45 +13,48 @@ int calculator(){
 
     int input = 0;
     int result = 0;
+    const int min = 1;
+    const int max = 4;
        
-        cout << "1. Addition" << endl;
-        cout << "2. Subtraction" << endl;
-        cout << "3. Multiplication" << endl;
-        cout << "4. Division" << endl;
-        cout << "Choose a function (1 - 5): " << endl;
-        cin >> input;   /*Validate input************************/
+    cout << "1. Addition" << endl;
+    cout << "2. Subtraction" << endl;
+    cout << "3. Multiplication" << endl;
+    cout << "4. Division" << endl;
+    cout << "Choose a function (1 - 4): " << endl;
 
-     // 3. Validates inputs (especially division by zero) -- ADD
+    input = getValidatedInput(min,max);  
 
-    
-        cout << "Input first number: " <<endl;
-        cin >> a;  /*Validate input************************/
+    cout << "Input first number: " <<endl;
+    a = validateInt();
+  
+    cout << "Input second number: " <<endl;
+    b = validateInt();
 
-        cout << "Input second number: " <<endl;
-        cin >> b;  /*Validate input************************/
-
-        switch(input){
-            case 1:
-                result = add(a,b);
-                cout << "== Result: " << a << " + " << b << " = " << result  << endl;
-                break;
-            case 2:
-                result = subtract(a,b);
-                 cout << "== Result: " << a << " - " << b << " = " << result  << endl;
-                break;
-            case 3:
-                result = multiply(a,b);
-                 cout << "== Result: " << a << " * " << b << " = " << result  << endl;
-                break;
-            case 4:
+    switch(input){
+        case 1:
+            result = add(a,b);
+            cout << "== Result: " << a << " + " << b << " = " << result  << endl;
+            break;
+        case 2:
+            result = subtract(a,b);
+                cout << "== Result: " << a << " - " << b << " = " << result  << endl;
+            break;
+        case 3:
+            result = multiply(a,b);
+                cout << "== Result: " << a << " * " << b << " = " << result  << endl;
+            break;
+        case 4:
+            try{
                 result = divide(a,b);
-                 cout << "== Result: " << a << " / " << b << " = " << result  << endl;
+                cout << "== Result: " << a << " / " << b << " = " << result  << endl;
+            } catch (const runtime_error& e){
+                cout << "**Error: " << e.what() <<endl;
+            }   
                 break;
-            default:
-               break;
-        }
+        default:
+            break;
+    }
     
-
     return 0;
 }
 
@@ -81,6 +71,11 @@ int multiply(int a, int b){
 }
 
 double divide(int a, int b){
-    return a / b;
+    if(b == 0){
+        throw runtime_error("Division by zero");
+    } else{
+        return (double)a / b;
+    }
+   
 }
 
