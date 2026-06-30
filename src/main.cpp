@@ -1,18 +1,5 @@
 #include <iostream>
 #include "../include/utility.h"
-
-
-//MISSING:
-// [ ] Input validation 
-    // invalid menu selections -d
-    //  non numeric input -d
-    // empty inputs -d
-// [ ] Error Handling + Messages
-// [ ] Comments to explain parts of code
-// [ ] Function design - each function should have a single responsibility
-// [ ] Code organization - organize code logically with related functions grouped together
-
-
 using namespace std;
 
 void displayMenu();
