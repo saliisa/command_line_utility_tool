@@ -1,18 +1,7 @@
 #include <iostream>
 #include "../include/utility.h"
-//MISSING:
-// [ ] Input validation 
-    // invalid menu selections
-    //  non numeric input
-    // division by zero
-    // empty inputs
-// [ ] Error Handling + Messages
-// [ ] Comments to explain parts of code
-// [ ] Function design - each function should have a single responsibility
-// [ ] Code organization - organize code logically with related functions grouped together
-
-
 using namespace std;
+
 int tempConversion(){
     cout << "\n\n";
     cout << "=================" << endl;
@@ -24,17 +13,17 @@ int tempConversion(){
     double num = 0;
     int input = 0;
     double result =0;
+    const int min = 1;
+    const int max = 2;
 
     cout << "What would you like to convert?" <<endl;
     cout << "1. Celsius to Fahrenheit (C to F) " <<endl;
     cout << "2. Fahrenheit to Celsius (F to C) " <<endl;
     cout << "Choose a number (1 - 2): " <<endl;
-    cin >> input;   /*Validate input************************/
+    input = getValidatedInput(min,max);
 
-
-    cout << "Please input a number:" <<endl;
-    cin >> num;  /*Validate input************************/
-
+    cout << "Please input the temp number:" <<endl;
+    num = validateInt();
 
     switch(input){
         case 1:
@@ -47,19 +36,14 @@ int tempConversion(){
             break;
         default:
             break;
-
     }
-
     return 0;
 }
-
 
 double celsiusToFahrenheit(int num){
     double fahrenheit = 0;
     fahrenheit = (num*1.8) +32;
     return fahrenheit;
-
-
 }
 
 double fahrenheitToCelsius(int num){
@@ -67,7 +51,3 @@ double fahrenheitToCelsius(int num){
     celsius = (num-32)* 5/9;
     return celsius;
 }
-
-
-
-
