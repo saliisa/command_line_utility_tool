@@ -149,7 +149,7 @@ cd src
 
 Use the code below to compile:
 ``` 
-g++ main.cpp calcualtor.cpp tempConverter.cpp passwordGenerator.cpp textProcessor.cpp input_utils.cpp -o utilityTool
+g++ main.cpp calculator.cpp tempConverter.cpp passwordGenerator.cpp textProcessor.cpp input_utils.cpp -o utilityTool
 ```
 
 Then run the compile code:
