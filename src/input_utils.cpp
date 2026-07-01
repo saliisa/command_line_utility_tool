@@ -31,14 +31,6 @@ string validateString(){
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discards all invalid characters remaining in the input buffer
     while(true){
         getline(cin, input);
-        //bool result = isLettersOnly(input);
-       /* if(input.empty()){
-            cout << "Invalid input. Please enter a non-empty string: " << endl;
-        } else if(!result){
-            cout << "Invalid input. Please enter a string consisting of letters only: " <<endl;
-        } else{
-            return input;
-        }*/
 
         if(!input.empty()){
             return input; 
