@@ -1,50 +1,187 @@
 # Command Line Utility Tool in C++
 
-Command line utitily tool with 4 functions
+A command line utitily tool with 4 functions such as calculator, temperature converter, random password generator and text encrypter & decrypter.
+
+
+### Table of Contents
+-  **[Utility Functions](#utility-functions)**
+-  **[Input Validation Rules](#input-validation-rules)**
+-  **[Program Architecture](#program-architecture)**
+-  **[Usage](#usage)**
+-  **[Error Handling](#error-handling)**
+-  **[Build & Run Instructions](#build--run-instructions)**
+-  **[Future Improvements](#future-improvements)**
 
 ## Utility Functions
 
-
-## Development Phases
-### Phase 1: Planning and Design
-#### Requirements
-- A main menu interface that allows users to select between at least 4 different utility functions
-- A least 4 utility functions - yet to be chosen
-- Proper input validation for all user interactions
-- Clear feedback to the user about operations and errors
-- Well-organized and commented code that follows C++ best practices 
-
-#### Features
-
-1. Simple Calculator
-2. Temperature Converter
-3. Random Password Generator
-4. Text encrypter and decrypter
-5. Exit
+### Simple Calculator
+Performs basic arithmetic operations: addition, subtraction, multiplication, and division.
+Includes validation for numeric input and prevents division by zero.
 
 
-Handles potential errors such as:
-- Invalid menu selections
-- Non-numeric input when numbers are expected
-- Invalid operations (such as division by zero)
-- Empty inputs when data is required
+### Temperature Converter
+Converts temperatures between Celsius and Fahrenheit using standard formulas.
+Ensures numeric input and provides clear output formatting.
 
-### Best Practices
-Follow these C++ best practices in your implementation:
 
-- Naming Conventions: Use descriptive variable and function names
+### Random Password Generator
+Generates secure random passwords using letters, digits, and special characters.
+User can choose between easy, medium and string password levels.
 
-- Comments: Include meaningful comments that explain the purpose of code sections
 
-- Function Design: Each function should have a single responsibility
+### Text Encrypter & Decrypter
+Implements a Caesar Cipher to encrypt or decrypt alphabetic text.
+Non‑alphabetic characters remain unchanged for readability.
 
-- Input Validation: Always validate user input before processing
 
-- Error Messages: Provide clear error messages when something goes wrong
+## Input Validation Rules
 
-- Code Organization: Organize your code logically with related functions grouped together
+### Menu Input
+- Must be an integer between 1 - 5
 
-- Magic Numbers: Avoid hardcoded "magic numbers"; use named constants instead
+### Calculator Input
+- Must be numeric
+- Division by zero is blocked
+
+### Temperature Converter Input
+- Must be nuemric 
+- Accepts negative values
+
+### Password Generator Input
+- Must be numeric
+- Password levels include: easy, medium, strong 
+
+### Text Encrypter Input
+- Must be a non-empty string
+- Letters are shifted
+
+
+## Program Architecture
+
+`/src`- cpp files
+```
+- main.cpp
+- calculator.cpp
+- tempConverter.cpp
+- passwordGenerator.cpp
+- textProcessor.cpp
+- input_utils.cpp
+```
+`/includes` - header files
+```
+- calculator.h
+- tempConverter.h
+- passwordGenerator.h
+- textProcessor.h
+- input_utils.h
+- utility.h
+```
+
+### Key Modules
+- **input_utils** - input validation functions
+- **utility** - declares common functions
+- **calculator** - arithmetic logic
+- **tempConverter** - conversion logic
+- **passwordGenerator** - random generation
+- **textProcessor** - Caesar Cipher logic
+
+
+
+
+## Usage Examples
+
+### Menu
+
+```  
+ ==============================
+    Command Line Utility Tool
+==============================
+    1. Calculator
+    2. Temperature Converter
+    3. Password Generator
+    4. Text Encrypter/Decrypter
+    5. Exit
+    Choose an option (1 - 5):
+```
+### Example: Text Encryption
+
+```
+Input your plaintext message:
+hello
+Input the number of shifts:
+3
+== Cipher text: khoor
+
+```
+
+### Example: Password Generator
+```
+    ================= 
+    Password Generator
+    ================= 
+
+    1. Easy - contains numbers or letters 
+    2. Medium - contains both numbers and letters 
+    3. Strong - contains numbers, letters and special characters 
+    Choose your password strength (1 - 3): 
+    1
+
+== Easy password (numbers): 1087
+== Easy password (letters): jpbj
+```
+
+
+
+## Error handling
+- Invalid menu selection
+- Non‑numeric input where numbers are required
+- Empty string input
+- Division by zero
+- Out‑of‑range values
+
+
+
+## Build & Run Instructions
+First navigate to the `src` file: \n 
+``` 
+cd src
+```
+
+Use the code below to compile:
+``` 
+g++ main.cpp calcualtor.cpp tempConverter.cpp passwordGenerator.cpp textProcessor.cpp input_utils.cpp -o utilityTool
+```
+
+Then run the compile code:
+```
+./utilityTool
+```
+or 
+```
+./utilityTool.exe
+```
+
+
+## Future Improvements
+- Add unit tests
+- Add more utility tools
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
