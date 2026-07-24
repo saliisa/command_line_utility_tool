@@ -165,6 +165,7 @@ or
 ## Future Improvements
 - Add unit tests
 - Add more utility tools
+- Refactor application to use CMake
 
 
 
